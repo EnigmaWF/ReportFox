@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="ReportFox.UserControlAlocationPO"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ReportFox"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" MinHeight="450" MinWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Белый Список" Grid.Column="0" Grid.Row="0" FontSize="14" Foreground="#2a363b" 
+                   TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" FontFamily="Verdana"/>
+        <TextBlock Text="Чёрный Список" Grid.Column="2" Grid.Row="0" FontSize="14" Foreground="#2a363b" 
+                   TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" FontFamily="Verdana"/>
+        <TextBlock Text="ПО для распределения" Grid.Column="3" Grid.Row="0" FontSize="14" Foreground="#2a363b" 
+                   TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" FontFamily="Verdana"/>
+
+        <DataGrid Name="GridWhiteList" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Margin="10" Background="Beige" 
+                  AutoGenerateColumns="False" MaxHeight="700">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Soft_Name}" Header="Название ПО"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Name="GridBlackList" Grid.Row="1" Grid.Column="2"  Grid.RowSpan="2" Margin="10" Background="Beige" 
+                  AutoGenerateColumns="False" MaxHeight="700">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Soft_Name}" Header="Название ПО"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Name="GridAllocation" Grid.Row="1" Grid.Column="3"  Grid.RowSpan="2" Margin="10" Background="Beige" 
+                  AutoGenerateColumns="False" MaxHeight="700">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Soft_Name}" Header="Название ПО"/>
+           </DataGrid.Columns>
+        </DataGrid>
+        
+        <Button  Content="&lt;" Grid.Row="1" Grid.Column="1" Width="40" Height="40" Margin="0,0,0,10" VerticalAlignment="Bottom" 
+                 Background="#1FAB89" Foreground="#FFE7FDCC" BorderBrush="#1FAB89" HorizontalAlignment="Center" Click="ToWhite"/>
+        
+        <Button  Content=">" Grid.Row="2" Grid.Column="1" Width="40" Height="40" Margin="0,20,0,0" VerticalAlignment="Top" 
+                 Background="#1FAB89" Foreground="#FFE7FDCC" BorderBrush="#1FAB89" HorizontalAlignment="Center" Click="ToBlack"/>
+        
+        <Button  Content="Обновить" Grid.Row="3" Grid.Column="3" Width="155" Height="30" Margin="20,0,0,0" VerticalAlignment="Center" 
+                 Background="#1FAB89" Foreground="#FFE7FDCC" BorderBrush="#1FAB89" HorizontalAlignment="Left" Click="Update"/>
+    </Grid>
+</UserControl>
